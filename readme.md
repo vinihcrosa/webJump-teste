@@ -8,8 +8,8 @@ Não existe certo ou errado, queremos saber como você se sai em situações rea
 # Instruções
 - O foco principal do nosso teste é o backend. Para facilitar você poderá utilizar os arquivos html  disponíveis no diretório assets
 - Crie essa aplicação como se fosse uma aplicação real, que seria utilizada pelo WebJump
-- Não utilize nenhum Framework. 
 - Fique à vontade para usar bibliotecas/componentes externos
+- Não utilize nenhum Framework, tais como Laravel, Symphony
 - Seguir princípios **SOLID** 
 - Utilize boas práticas de programação
 - Utilize boas práticas de git
@@ -22,10 +22,11 @@ Não existe certo ou errado, queremos saber como você se sai em situações rea
 	- **Produto**: Nome, SKU (Código), preço, descrição, quantidade e categoria (cada produto pode conter uma ou mais categorias)
 	- **Categoria**: Código e nome.
 - Salvar as informações necessárias em um banco de dados (relacional ou não), de sua escolha
-- Criar um importador de produtos/categorias via CLI no formato  de CSV. Importar o arquivo disponibilizado no repositório (assets/import.csv).
-- Gerar logs das ações (diferencial)
-- Testes automatizados com informação da cobertura de testes (diferencial)
-- Como um desafio adicional você pode implementar o upload de imagem no cadastro de produtos
+
+# Opcionais
+- Gerar logs das ações
+- Testes automatizados com informação da cobertura de testes
+- Upload de imagem no cadastro de produtos
 
 # O que será avaliado
 - Estrutura e organização do código e dos arquivos
@@ -40,6 +41,8 @@ Não existe certo ou errado, queremos saber como você se sai em situações rea
 - Crie uma branch com o nome desafio
 
 # Como enviar seu teste
-Envie um email para [carreira@webjump.com.br] com o link do seu repositório
+Envie um email para [carreira@webjump.com.br] com o link do seu repositório.
+
+Se o seu repositório for privado, conceda acesso ao email [@webjump.com.br].
 
 Qualquer dúvida sobre o teste, fique a vontade para entrar em contato conosco.
