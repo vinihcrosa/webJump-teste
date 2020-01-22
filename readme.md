@@ -43,6 +43,6 @@ Não existe certo ou errado, queremos saber como você se sai em situações rea
 # Como enviar seu teste
 Envie um email para [carreira@webjump.com.br] com o link do seu repositório.
 
-Se o seu repositório for privado, conceda acesso ao email [@webjump.com.br].
+Se o seu repositório for privado, conceda acesso ao email [codereview@webjump.com.br].
 
 Qualquer dúvida sobre o teste, fique a vontade para entrar em contato conosco.
