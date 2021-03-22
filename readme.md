@@ -8,8 +8,8 @@ Não existe certo ou errado, queremos saber como você se sai em situações rea
 # Instruções
 - O foco principal do nosso teste é o backend. Para facilitar você poderá utilizar os arquivos html  disponíveis no diretório assets
 - Crie essa aplicação como se fosse uma aplicação real, que seria utilizada pelo WebJump
-- Fique à vontade para usar bibliotecas/componentes externos
-- Não utilize nenhum Framework, tais como Laravel, Symphony
+- Fique à vontade para usar bibliotecas/componentes externos (composer)
+- Não utilize nenhum Framework, tais como Laravel, Lumen ou Symphony
 - Seguir princípios **SOLID** 
 - Utilize boas práticas de programação
 - Utilize boas práticas de git
@@ -37,12 +37,12 @@ Não existe certo ou errado, queremos saber como você se sai em situações rea
 - Enfim, tudo será observado e levado em conta
 
 # Como iniciar o desenvolvimento
-- Fork esse repositório na sua conta do BitBucket.
-- Crie uma branch com o nome desafio
+- **Fork** esse repositório na sua conta do BitBucket.
+- Crie uma branch com o nome **desafio**
 
 # Como enviar seu teste
 Envie um email para [carreira@webjump.com.br] com o link do seu repositório.
 
-Se o seu repositório for privado, conceda acesso ao email [codereview@webjump.com.br].
+Se o seu repositório for privado, conceda acesso aos emails: eliel.depaula@webjump.com.br, deocleciano.junior@webjump.com.br, gustavo.alves@webjump.com.br.
 
 Qualquer dúvida sobre o teste, fique a vontade para entrar em contato conosco.
