@@ -1,9 +1,7 @@
-import { prismaClient } from "../../../modules/prismaClient";
-import { ProductRepository } from "../../../repositories/implementations/prisma/ProductRepository";
+import { productRepository } from "../../../repositories/implementations/prisma";
 import { UpdateProductController } from "./updateProduct.controller";
 import { UpdateProductUseCase } from "./updateProduct.useCase";
 
-const productRepository = new ProductRepository(prismaClient);
 
 const updateProductUseCase = new UpdateProductUseCase(productRepository);
 const updateProductController = new UpdateProductController(updateProductUseCase);
