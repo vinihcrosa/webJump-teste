@@ -3,6 +3,7 @@ import { createProductController } from "./createProduct";
 import { getAllProductsController } from "./getAllProducts";
 import { updateProductController } from "./updateProduct";
 import { deleteProductController } from "./deleteProduct";
+import { getOneProductController } from "./getOneProduct";
 
 const productRouter = Router()
 
@@ -12,6 +13,10 @@ productRouter.post('/', (req: Request, res: Response) => {
 
 productRouter.get('/', (req: Request, res: Response) => {
   getAllProductsController.handle(req, res)
+})
+
+productRouter.get('/:sku', (req: Request, res: Response) => {
+  getOneProductController.handle(req, res)
 })
 
 productRouter.patch('/:sku', (req: Request, res: Response) => {
