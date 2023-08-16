@@ -99,4 +99,27 @@ export class ProductRepository implements IProductRepository {
         throw new Error('Erro ao salvar produto');
       }
     }
+
+    async findAll(limit = 10): Promise<Product[]> {
+      console.log(limit);
+      const products = await this.prismaClient.product.findMany({
+        take: limit,
+        include: {
+          category: true
+        }
+      })
+
+      const productsEntity = products.map(product => {
+        return new Product({
+          name: product.name,
+          sku: product.sku,
+          description: product.description,
+          price: product.price,
+          quantity: product.quantity,
+          category: product.category.map(category => category.categoryName),
+        });
+      });
+
+      return productsEntity;
+    }
 }
