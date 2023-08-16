@@ -1,9 +1,6 @@
-import { prismaClient } from "../../../modules/prismaClient";
-import { ProductRepository } from "../../../repositories/implementations/prisma/ProductRepository";
+import { productRepository } from "../../../repositories/implementations/prisma";
 import { GetAllProductsController } from "./getAllProducts.controller";
 import { GetAllProductsUseCase } from "./getAllProducts.useCase";
-
-const productRepository = new ProductRepository(prismaClient);
 
 const getAllProductsUseCase = new GetAllProductsUseCase(productRepository);
 const getAllProductsController = new GetAllProductsController(getAllProductsUseCase);
