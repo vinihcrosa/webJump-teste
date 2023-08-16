@@ -11,7 +11,6 @@ export class CategoryRepository implements ICategoryRepository {
     await this.prismaCient.category.create({
       data: {
         name: category.name,
-        description: category.description,
       }
     });
   }
@@ -29,7 +28,6 @@ export class CategoryRepository implements ICategoryRepository {
 
     const categoryEntity = new Category({
       name: category.name,
-      description: category.description,
     });
 
     return categoryEntity;
@@ -41,8 +39,8 @@ export class CategoryRepository implements ICategoryRepository {
     });
 
     const categoriesEntity = categories.map(category => new Category({
+      id: category.id,
       name: category.name,
-      description: category.description,
     }));
 
     return categoriesEntity;
@@ -52,16 +50,16 @@ export class CategoryRepository implements ICategoryRepository {
 
     const categoryUpdated = await this.prismaCient.category.update({
       where: {
-        name: category.name,
+        id: category.id,
       },
       data: {
-        description: category.description,
+        name: category.name,
       }
     });
 
     const categoryEntity = new Category({
+      id: categoryUpdated.id,
       name: categoryUpdated.name,
-      description: categoryUpdated.description,
     })
 
     return categoryEntity;

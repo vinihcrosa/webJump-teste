@@ -23,20 +23,20 @@ model Product {
 }
 
 model Category {
-  name        String                @id
-  description String
-  products    CategoriesOnProduct[]
-  createdAt   DateTime              @default(now())
-  updatedAt   DateTime              @updatedAt
+  id        Int                   @id @default(autoincrement())
+  name      String                @unique
+  products  CategoriesOnProduct[]
+  createdAt DateTime              @default(now())
+  updatedAt DateTime              @updatedAt
 }
 
 model CategoriesOnProduct {
-  product      Product  @relation(fields: [productSku], references: [sku])
-  productSku   String
-  category     Category @relation(fields: [categoryName], references: [name])
-  categoryName String
+  product    Product  @relation(fields: [productSku], references: [sku])
+  productSku String
+  category   Category @relation(fields: [categoryId], references: [id])
+  categoryId Int
 
   createdAt DateTime @default(now())
 
-  @@id([categoryName, productSku])
+  @@id([categoryId, productSku])
 }
