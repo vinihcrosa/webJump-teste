@@ -16,7 +16,6 @@ export class GetAllProductsController {
 
       return response.status(200).json(products)
     } catch (error) {
-      console.log(error)
       let message = 'Unexpected error.'
       if(error instanceof Error)
         message = error.message

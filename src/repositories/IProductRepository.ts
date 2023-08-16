@@ -1,8 +1,10 @@
 import { Product } from "../entities/product.entity";
 
 export interface IProductRepository {
-  findByName(name: string): Promise<Product | null>;
+  save(product: Product): Promise<void>;
+
   findBySku(sku: string): Promise<Product | null>;
   findAll(limit?: number): Promise<Product[]>;
-  save(product: Product): Promise<void>;
+
+  update(product: Product): Promise<void>;
 }

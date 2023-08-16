@@ -93,15 +93,12 @@ export class ProductRepository implements IProductRepository {
           }
         })
 
-        console.log(newProduct);
       } catch (error) {
-        console.log(error);
         throw new Error('Erro ao salvar produto');
       }
     }
 
     async findAll(limit = 10): Promise<Product[]> {
-      console.log(limit);
       const products = await this.prismaClient.product.findMany({
         take: limit,
         include: {
@@ -121,5 +118,45 @@ export class ProductRepository implements IProductRepository {
       });
 
       return productsEntity;
+    }
+
+    async update(product: Product): Promise<void> {
+      const productExists = await this.findBySku(product.sku);
+      if (!productExists) {
+        throw new Error('Produto não encontrado');
+      }
+
+      try {
+        const updatedProduct = await this.prismaClient.product.update({
+          where: {
+            sku: product.sku
+          },
+          data: {
+            name: product.name,
+            description: product.description,
+            price: product.price,
+            quantity: product.quantity,
+            category: {
+              create: product.category.map(categoryName => {
+                return {
+                  category: {
+                    connectOrCreate: {
+                      where: {
+                        name: categoryName
+                      },
+                      create: {
+                        name: categoryName,
+                        description: ''
+                      }
+                    }
+                  }
+                }
+              })
+            }
+          }
+        })
+      } catch (error) {
+        throw new Error('Erro ao atualizar produto');
+      }
     }
 }
