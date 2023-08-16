@@ -1,6 +1,6 @@
 export interface ICategory {
-  name: string,
-  description: string,
+  id?: number
+  name: string
 }
 
 export class Category {
@@ -14,11 +14,15 @@ export class Category {
     return this.props.name;
   }
 
-  get description(): string {
-    return this.props.description;
+  get id(): number | undefined {
+    return this.props.id;
   }
 
-  public updateDescription(description: string): void {
-    this.props.description = description;
+  set id(id: number) {
+    this.props.id = id;
+  }
+
+  set name(name: string) {
+    this.props.name = name;
   }
 }
