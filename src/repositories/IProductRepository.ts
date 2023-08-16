@@ -7,4 +7,6 @@ export interface IProductRepository {
   findAll(limit?: number): Promise<Product[]>;
 
   update(product: Product): Promise<void>;
+
+  delete(sku: string): Promise<void>;
 }

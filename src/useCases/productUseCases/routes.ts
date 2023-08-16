@@ -2,6 +2,7 @@ import { Request, Response, Router } from "express";
 import { createProductController } from "./createProduct";
 import { getAllProductsController } from "./getAllProducts";
 import { updateProductController } from "./updateProduct";
+import { deleteProductController } from "./deleteProduct";
 
 const productRouter = Router()
 
@@ -15,6 +16,10 @@ productRouter.get('/', (req: Request, res: Response) => {
 
 productRouter.patch('/:sku', (req: Request, res: Response) => {
   updateProductController.handle(req, res)
+})
+
+productRouter.delete('/:sku', (req: Request, res: Response) => {
+  deleteProductController.handle(req, res)
 })
 
 export { productRouter }

@@ -159,4 +159,28 @@ export class ProductRepository implements IProductRepository {
         throw new Error('Erro ao atualizar produto');
       }
     }
+
+    async delete(sku: string): Promise<void> {
+      const productExists = await this.findBySku(sku);
+      if (!productExists) {
+        throw new Error('Produto não encontrado');
+      }
+
+      try {
+        await this.prismaClient.categoriesOnProduct.deleteMany({
+          where: {
+            productSku: sku
+          }
+        })
+        const deletedProduct = await this.prismaClient.product.delete({
+          where: {
+            sku: sku
+          },
+
+        })
+      } catch (error) {
+        console.log(error);
+        throw new Error('Erro ao deletar produto');
+      }
+    }
 }
