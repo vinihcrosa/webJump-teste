@@ -1,5 +1,7 @@
 import { Request, Response } from "express";
 import { UpdateCategoryUseCase } from "./updateCategory.useCase";
+import { UpdateCategoryDTO } from "./updateCategory.dto";
+import { validate } from "class-validator";
 
 export class UpdateCategoryController {
   constructor (
@@ -8,10 +10,11 @@ export class UpdateCategoryController {
 
   async handle(request: Request, response: Response) {
     const { id } = request.params;
-    const { name } = request.body;
+    const updateCategoryDto: UpdateCategoryDTO = request.body;
 
     try {
-      await this.updateCategoryUseCase.execute(name, +id);
+      validate(updateCategoryDto)
+      await this.updateCategoryUseCase.execute(updateCategoryDto, +id);
 
       return response.status(204).send();
     } catch (error) {
