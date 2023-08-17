@@ -1,3 +1,4 @@
+import { Category } from "../../../entities/category.entity";
 import { Product } from "../../../entities/product.entity";
 import { IProductRepository } from "../../IProductRepository";
 import { PrismaClient } from '@prisma/client';
@@ -13,7 +14,11 @@ export class ProductRepository implements IProductRepository {
           name: name
         },
         include: {
-          category: true
+          category: {
+            include: {
+              category: true
+            }
+          }
         }
       })
       
@@ -27,7 +32,7 @@ export class ProductRepository implements IProductRepository {
         description: product.description,
         price: product.price,
         quantity: product.quantity,
-        category: product.category.map(category => category.categoryName),
+        category: product.category.map(category => category.category.name),
       });
 
       return productEntity;
@@ -39,7 +44,11 @@ export class ProductRepository implements IProductRepository {
           sku: sku
         },
         include: {
-          category: true
+          category: {
+            include: {
+              category: true
+            }
+          }
         }
       })
       
@@ -53,7 +62,7 @@ export class ProductRepository implements IProductRepository {
         description: product.description,
         price: product.price,
         quantity: product.quantity,
-        category: product.category.map(category => category.categoryName),
+        category: product.category.map(category => category.category.name),
       });
 
       return productEntity;
@@ -83,7 +92,6 @@ export class ProductRepository implements IProductRepository {
                       },
                       create: {
                         name: categoryName,
-                        description: ''
                       }
                     }
                   }
@@ -94,6 +102,7 @@ export class ProductRepository implements IProductRepository {
         })
 
       } catch (error) {
+        console.log(error);
         throw new Error('Erro ao salvar produto');
       }
     }
@@ -102,7 +111,11 @@ export class ProductRepository implements IProductRepository {
       const products = await this.prismaClient.product.findMany({
         take: limit,
         include: {
-          category: true
+          category: {
+            include: {
+              category: true
+            }
+          }
         }
       })
 
@@ -113,7 +126,7 @@ export class ProductRepository implements IProductRepository {
           description: product.description,
           price: product.price,
           quantity: product.quantity,
-          category: product.category.map(category => category.categoryName),
+          category: product.category.map(category => category.category.name),
         });
       });
 
