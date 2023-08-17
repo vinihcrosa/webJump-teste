@@ -5,35 +5,49 @@ export default class PinoLogger implements ILogger{
   private logger: pino.Logger;
 
   constructor() {
+    const fileTransport = pino.transport({
+      targets: [
+        {
+          target: 'pino/file',
+          level: 'debug',
+          options: {
+            destination: `./logs/log-${Date.now()}.log`,
+          }
+        },
+        {
+          target: 'pino-pretty',
+          level: 'debug',
+          options: {}
+        }
+      ]
+    })
+
     this.logger = pino({
       enabled: true,
       level: 'debug',
-      prettyPrint: {
-        colorize: true,
-        translateTime: 'yyyy-mm-dd HH:MM:ss',
-        ignore: 'pid,hostname'
-      }
-    });
+    },
+    fileTransport
+    );
   }
   fatal(message: string, ...args: any[]): void {
-    this.fatal(message, ...args);
+    this.logger.fatal(message, ...args);
   }
   error(message: string, ...args: any[]): void {
-    this.error(message, ...args);
+    this.logger.error(message, ...args);
   }
   warn(message: string, ...args: any[]): void {
-    this.warn(message, ...args);
+    this.logger.warn(message, ...args);
   }
 
   info(message: string, ...args: any[]): void {
-    this.info(message, ...args);
+    this.logger.info(message, ...args);
   }
 
   debug(message: string, ...args: any[]): void {
-    this.debug(message, ...args);
+    this.logger.debug(message, ...args);
   }
 
   trace(message: string, ...args: any[]): void {
-    this.trace(message, ...args);
+    this.logger.trace(message, ...args);
   }
 }
