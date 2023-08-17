@@ -1,0 +1,409 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2023-08-17T19:02:55.505Z",
+  "__export_source": "insomnia.desktop.app:v2023.5.3",
+  "resources": [
+    {
+      "_id": "req_f534136273de498f80ae81c37bf80d08",
+      "parentId": "fld_e9724562f352442aa764e1fdc225574f",
+      "modified": 1692294280881,
+      "created": 1692084693494,
+      "url": "{{ _.BASE_URL }}/product",
+      "name": "Create Product",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "multipart/form-data",
+        "params": [
+          {
+            "id": "pair_d69e3696a57b486bb1d15c2d8b6c978b",
+            "name": "name",
+            "value": "teste",
+            "description": ""
+          },
+          {
+            "id": "pair_e94ffe3ed90c400dbe1fe70f3eb1cdb3",
+            "name": "sku",
+            "value": "123abcdef",
+            "description": ""
+          },
+          {
+            "id": "pair_ca87d8e3003a4b1393b14152b786cc5a",
+            "name": "price",
+            "value": "10.2",
+            "description": ""
+          },
+          {
+            "id": "pair_454930b47ec744a4a7edb962568d84f0",
+            "name": "description",
+            "value": "teste de endpoint",
+            "description": ""
+          },
+          {
+            "id": "pair_d7eb63b57d7d447685e2a2cef39b7cd4",
+            "name": "teste de endpoint",
+            "value": "10",
+            "description": ""
+          },
+          {
+            "id": "pair_2a3905fa94f34f39a05f8c114f7841c2",
+            "name": "category",
+            "value": "teste 1",
+            "description": ""
+          },
+          {
+            "id": "pair_87bf1fbb55af40f495320a335d504cab",
+            "name": "category",
+            "value": "teste 2",
+            "description": ""
+          },
+          {
+            "id": "pair_f8df1daa44b147b8b72ede36c6c735a4",
+            "name": "image",
+            "value": "",
+            "description": "",
+            "type": "file",
+            "fileName": "C:\\Users\\vinicius\\Downloads\\dall-e-2.webp"
+          },
+          {
+            "id": "pair_59709023250c441a9a1cb4f7d1dfc22c",
+            "name": "quantity",
+            "value": "10",
+            "description": ""
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "id": "pair_ccb3f04e9942460bac838b781ac6cc2d",
+          "name": "limit",
+          "value": "5",
+          "description": ""
+        }
+      ],
+      "headers": [
+        { "name": "Content-Type", "value": "multipart/form-data" },
+        { "name": "User-Agent", "value": "Insomnia/2023.5.0" }
+      ],
+      "authentication": {},
+      "metaSortKey": -1692084693494,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_e9724562f352442aa764e1fdc225574f",
+      "parentId": "wrk_58fe1902f5834501b894f439cb04a2f5",
+      "modified": 1692084691757,
+      "created": 1692084691757,
+      "name": "Products",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1692084691757,
+      "_type": "request_group"
+    },
+    {
+      "_id": "wrk_58fe1902f5834501b894f439cb04a2f5",
+      "parentId": null,
+      "modified": 1692076459148,
+      "created": 1692076438087,
+      "name": "Teste",
+      "description": "",
+      "scope": "collection",
+      "_type": "workspace"
+    },
+    {
+      "_id": "req_f39ad763b28b4d9eb7fecbc68b54a70d",
+      "parentId": "fld_e9724562f352442aa764e1fdc225574f",
+      "modified": 1692162137955,
+      "created": 1692112260700,
+      "url": "{{ _.BASE_URL }}/product",
+      "name": "Get all products",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "id": "pair_a49a6c66dc4c4a1498b2ce4ee2d027c7",
+          "name": "limit",
+          "value": "5",
+          "description": ""
+        }
+      ],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1692112260700,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_123d09c096434244917aa44781764a43",
+      "parentId": "fld_e9724562f352442aa764e1fdc225574f",
+      "modified": 1692162605951,
+      "created": 1692160752603,
+      "url": "{{ _.BASE_URL }}/product/123abc",
+      "name": "Update a product",
+      "description": "",
+      "method": "PATCH",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"name\": \"name atualizado\",\n\t\"category\": [\"brk\"]\n}"
+      },
+      "parameters": [],
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "User-Agent", "value": "Insomnia/2023.5.2" }
+      ],
+      "authentication": {},
+      "metaSortKey": -1692160752603,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_784dfdd4caac4dd0b6f8d3ec10456bac",
+      "parentId": "fld_e9724562f352442aa764e1fdc225574f",
+      "modified": 1692162141022,
+      "created": 1692162100022,
+      "url": "{{ _.BASE_URL }}/product/123abc",
+      "name": "New Request",
+      "description": "",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1692162100022,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_79a6c6c64462459691b2913596ed8ded",
+      "parentId": "fld_e9724562f352442aa764e1fdc225574f",
+      "modified": 1692193222142,
+      "created": 1692193107767,
+      "url": "{{ _.BASE_URL }}/product/123abcd",
+      "name": "Get one product by sku",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1692193107767,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_10425527665b454f83b8cf69831a7dbd",
+      "parentId": "fld_9b854ce2ffd44ea4951cc486e48717c9",
+      "modified": 1692223840330,
+      "created": 1692214649259,
+      "url": "{{ _.BASE_URL }}/category",
+      "name": "Create new category",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"name\": \"calçado\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "User-Agent", "value": "Insomnia/2023.5.3" }
+      ],
+      "authentication": {},
+      "metaSortKey": -1692214649259,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_9b854ce2ffd44ea4951cc486e48717c9",
+      "parentId": "wrk_58fe1902f5834501b894f439cb04a2f5",
+      "modified": 1692214647580,
+      "created": 1692214647580,
+      "name": "Category",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1692214647580,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_cfd41dd6b00041ab8a4d25051d144922",
+      "parentId": "fld_9b854ce2ffd44ea4951cc486e48717c9",
+      "modified": 1692219592054,
+      "created": 1692218746899,
+      "url": "{{ _.BASE_URL }}/category",
+      "name": "Get all categories",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "id": "pair_c5b7a68155ac487f9995ab74fdcd651b",
+          "name": "limit",
+          "value": "2",
+          "description": ""
+        }
+      ],
+      "headers": [{ "name": "User-Agent", "value": "Insomnia/2023.5.3" }],
+      "authentication": {},
+      "metaSortKey": -1692218746899,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_e561caeac30645efbaf613ba94c6ad5e",
+      "parentId": "fld_9b854ce2ffd44ea4951cc486e48717c9",
+      "modified": 1692223859560,
+      "created": 1692219594409,
+      "url": "{{ _.BASE_URL }}/category/calçado",
+      "name": "Get category by name",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [{ "name": "User-Agent", "value": "Insomnia/2023.5.3" }],
+      "authentication": {},
+      "metaSortKey": -1692219594409,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_2bece4d7c5454d9ead52738ab96570c8",
+      "parentId": "fld_9b854ce2ffd44ea4951cc486e48717c9",
+      "modified": 1692224312643,
+      "created": 1692224178254,
+      "url": "{{ _.BASE_URL }}/category/1",
+      "name": "New Request",
+      "description": "",
+      "method": "PATCH",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"name\": \"teste\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "User-Agent", "value": "Insomnia/2023.5.3" }
+      ],
+      "authentication": {},
+      "metaSortKey": -1692224178254,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_be3289874dc24e04b718441e92ececc5",
+      "parentId": "wrk_58fe1902f5834501b894f439cb04a2f5",
+      "modified": 1692076518665,
+      "created": 1692076468015,
+      "url": "{{ _.BASE_URL }}",
+      "name": "New Request",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1692076468015,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "env_5b56d39c46d939ea0397957ceecee7ade8b6877b",
+      "parentId": "wrk_58fe1902f5834501b894f439cb04a2f5",
+      "modified": 1692076476425,
+      "created": 1692076438089,
+      "name": "Base Environment",
+      "data": {},
+      "dataPropertyOrder": {},
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1692076438089,
+      "_type": "environment"
+    },
+    {
+      "_id": "jar_5b56d39c46d939ea0397957ceecee7ade8b6877b",
+      "parentId": "wrk_58fe1902f5834501b894f439cb04a2f5",
+      "modified": 1692076438090,
+      "created": 1692076438090,
+      "name": "Default Jar",
+      "cookies": [],
+      "_type": "cookie_jar"
+    },
+    {
+      "_id": "env_22ba89c32bc14cf2a167f2066d6fd0e3",
+      "parentId": "env_5b56d39c46d939ea0397957ceecee7ade8b6877b",
+      "modified": 1692076509412,
+      "created": 1692076480150,
+      "name": "Dev",
+      "data": { "BASE_URL": "localhost:3333" },
+      "dataPropertyOrder": { "&": ["BASE_URL"] },
+      "color": "#ff0000",
+      "isPrivate": false,
+      "metaSortKey": 1692076480150,
+      "_type": "environment"
+    }
+  ]
+}
