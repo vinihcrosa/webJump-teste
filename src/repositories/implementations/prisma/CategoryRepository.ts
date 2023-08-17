@@ -7,6 +7,25 @@ export class CategoryRepository implements ICategoryRepository {
     private prismaCient: PrismaClient,
   ) {}
 
+  async getById(id: number): Promise<Category | null> {
+    const category = await this.prismaCient.category.findFirst({
+      where: {
+        id,
+      }
+    })
+
+    if (!category) {
+      return null;
+    }
+
+    const categoryEntity = new Category({
+      id: category.id,
+      name: category.name,
+    })
+
+    return categoryEntity;
+  }
+
   async create(category: Category): Promise<void> {
     await this.prismaCient.category.create({
       data: {

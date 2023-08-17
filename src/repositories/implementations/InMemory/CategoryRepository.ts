@@ -4,6 +4,12 @@ import { ICategoryRepository } from "../../ICategoryRepository";
 export class CategoryRepositoryInMemory implements ICategoryRepository{
   private categories: Category[] = [];
 
+  async getById(id: number): Promise<Category | null> {
+    const category = this.categories.find(category => category.id === id);
+
+    return category || null;
+  }
+
   async create(category: Category): Promise<void> {
     const id = this.categories.length + 1;
     category.id = id;

@@ -5,6 +5,7 @@ export interface ICategoryRepository {
 
   getAll(limit: number): Promise<Category[]>;
   getByName(name: string): Promise<Category | null>;
+  getById(id: number): Promise<Category | null>;
 
   update(category: Category): Promise<Category>;
 
