@@ -1,48 +1,51 @@
-# Você quer ser um desenvolvedor Backend na Web Jump?
-Criamos esse teste para avaliar seus conhecimentos e habilidades como desenvolvedor backend.
+# Teste WebJump
 
-# O teste
-O desafio é desenvolver um sistema de gerenciamento de produtos. Esse sistema será composto de um cadastro de produtos e categorias. Os requisitos desse sistema estão listados nos tópicos abaixo.
-Não existe certo ou errado, queremos saber como você se sai em situações reais como esse desafio.
+## Como rodar
 
-# Instruções
-- O foco principal do nosso teste é o backend. Para facilitar você poderá utilizar os arquivos html  disponíveis no diretório assets
-- Crie essa aplicação como se fosse uma aplicação real, que seria utilizada pelo WebJump
-- Fique à vontade para usar bibliotecas/componentes externos (composer)
-- Não utilize nenhum Framework, tais como Laravel, Lumen ou Symphony
-- Seguir princípios **SOLID** 
-- Utilize boas práticas de programação
-- Utilize boas práticas de git
-- Documentar como rodar o projeto
-- Crie uma documentação simples comentando sobre as tecnologias, versões e soluções adotadas
+Assim que baixar o codigo comece instalando os pacotes do npm:
 
-# Requisitos
-- O sistema deverá ser desenvolvido utilizando a linguagem PHP (de preferência a versão mais nova) ou outra linguagem se assim foi especificado para sua avaliação por nossa equipe.
-- Você deve criar um CRUD que permita cadastrar as seguintes informações:
-	- **Produto**: Nome, SKU (Código), preço, descrição, quantidade e categoria (cada produto pode conter uma ou mais categorias)
-	- **Categoria**: Código e nome.
-- Salvar as informações necessárias em um banco de dados (relacional ou não), de sua escolha
+``` shell
+  npm install
+```
 
-# Opcionais
-- Gerar logs das ações
-- Testes automatizados com informação da cobertura de testes
-- Upload de imagem no cadastro de produtos
+Após é necessário rodar o comando para aplicar as migrations no banco de dados:
 
-# O que será avaliado
-- Estrutura e organização do código e dos arquivos
-- Soluções adotadas
-- Tecnologias utilizadas
-- Qualidade
-- Padrões PSR, Design Patterns
-- Enfim, tudo será observado e levado em conta
+``` shell
+  npx prisma migrate dev
+```
 
-# Como iniciar o desenvolvimento
-- **Fork** esse repositório na sua conta do BitBucket.
-- Crie uma branch com o nome **desafio**
+E por fim para subir o servidor basta rodar o comando:
 
-# Como enviar seu teste
-Envie um email para [carreira@webjump.com.br] com o link do seu repositório.
+``` shell
+  npm run start:dev
+```
 
-O repositório do teste precisa ser público. 
+Caso queira rodar a suite de testes basta rodar o comando:
 
-Qualquer dúvida sobre o teste, fique a vontade para entrar em contato conosco.
+``` shell
+  npm run test
+```
+
+## Tecnologias usadas
+
+Para o banco de dados foi escolhido o uso do [prisma](https://www.prisma.io/), um orm que abstrai os comando do banco de dados e tem a funcionalidade de migrations, que pode fazer um controle de versao do banco de dados.
+
+Para criar o servidor foi usado a biblioteca [express](https://expressjs.com/pt-br/).
+
+Para organizar o codigo foi usado o padrão MVC, e para desacoplar a camada de banco de dados da camada de aplicação foi criado interfaces para implementação dos repositorios.
+
+Os casos de uso são implementados na pasta useCases, separos por dominio, ou seja, os casos de uso referentes a produtos estão em uma pasta, enquanto os casos de uso referentes a categorias estão em outra pasta.
+
+Para a suite de testes o framework escolhido foi o [vitest](https://vitest.dev/), apenassquestáo de performance.
+
+## Rotas da api
+
+Para rodar as rotas da api existe um arquivo json exportado do [insomnia](https://insomnia.rest/download), esse arquivo pode ser importando tanto no proprio insomnia quanto no [postman](https://www.postman.com/).
+
+## Logs
+
+Os logs da aplicação são mostrados tanto no terminal quanto gravados em um arquivo na pasta logs, mas caso houvesse um servico de logs externo como o kibana seria simples de integrar.
+
+## Imagens dos produtos
+
+A rota de criação de produtos aceita um campo chamado image com uma imagem do produto que sera gravado em uma pasta publica no servidor e para acessar as imagens basta acessar a api no endpoint '/public/images/imageName'

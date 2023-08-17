@@ -1,17 +1,22 @@
 import pino from 'pino';
 import { ILogger } from '../ILogger';
+import fs from 'fs'
 
 export default class PinoLogger implements ILogger{
   private logger: pino.Logger;
 
   constructor() {
+    const dirName = 'logs'
+    if(!fs.existsSync(dirName))
+      fs.mkdirSync(dirName)
+
     const fileTransport = pino.transport({
       targets: [
         {
           target: 'pino/file',
           level: 'debug',
           options: {
-            destination: `./logs/log-${Date.now()}.log`,
+            destination: `./${dirName}/log-${Date.now()}.log`,
           }
         },
         {
