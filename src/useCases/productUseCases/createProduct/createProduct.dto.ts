@@ -1,4 +1,4 @@
-import { IsInt, IsNumber, IsString, MinLength } from 'class-validator';
+import { IsInt, IsNumber, IsOptional, IsString, MinLength } from 'class-validator';
 
 export class CreateProductRequestDTO {
   @IsString()
@@ -18,4 +18,8 @@ export class CreateProductRequestDTO {
 
   @MinLength(1)
   category: string[];
+
+  @IsString()
+  @IsOptional()
+  image?: string
 }

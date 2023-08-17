@@ -82,6 +82,7 @@ export class ProductRepository implements IProductRepository {
             description: product.description,
             price: product.price,
             quantity: product.quantity,
+            image: product.image,
             category: {
               create: product.category.map(categoryName => {
                 return {

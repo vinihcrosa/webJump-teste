@@ -17,6 +17,7 @@ model Product {
   description String
   quantity    Int
   category    CategoriesOnProduct[]
+  image       String?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

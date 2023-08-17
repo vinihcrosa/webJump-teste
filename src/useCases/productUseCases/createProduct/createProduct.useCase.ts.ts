@@ -29,10 +29,11 @@ export class CreateProductUseCase {
     const product = new Product({
       name: data.name,
       sku: data.sku,
-      price: data.price,
+      price: +data.price,
       description: data.description,
-      quantity: data.quantity,
+      quantity: +data.quantity,
       category: data.category,
+      image: data.image
     });
     await this.productsRepository.save(product);
 
