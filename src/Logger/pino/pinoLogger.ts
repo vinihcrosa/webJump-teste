@@ -35,7 +35,7 @@ export default class PinoLogger implements ILogger{
       message,
       data,
       args
-    }, message);
+    });
   }
   error(context:string, message: string, data: any, ...args: any[]): void {
     this.logger.error({
@@ -43,7 +43,7 @@ export default class PinoLogger implements ILogger{
       message,
       data,
       args
-    }, message);
+    });
   }
   warn(context:string, message: string, data: any, ...args: any[]): void {
     this.logger.warn({
@@ -51,7 +51,7 @@ export default class PinoLogger implements ILogger{
       message,
       data,
       args
-    }, message);
+    });
   }
 
   info(context:string, message: string, data: any, ...args: any[]): void {
@@ -60,7 +60,7 @@ export default class PinoLogger implements ILogger{
       message,
       data,
       args
-    }, message);
+    });
   }
 
   debug(context:string, message: string, data: any, ...args: any[]): void {
@@ -69,7 +69,7 @@ export default class PinoLogger implements ILogger{
       message,
       data,
       args
-    }, message);
+    });
   }
 
   trace(context:string, message: string, data: any, ...args: any[]): void {
@@ -78,6 +78,6 @@ export default class PinoLogger implements ILogger{
       message,
       data,
       args
-    }, message);
+    });
   }
 }
