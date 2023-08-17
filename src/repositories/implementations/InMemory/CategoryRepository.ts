@@ -5,6 +5,8 @@ export class CategoryRepositoryInMemory implements ICategoryRepository{
   private categories: Category[] = [];
 
   async create(category: Category): Promise<void> {
+    const id = this.categories.length + 1;
+    category.id = id;
     this.categories.push(category);
   }
   
