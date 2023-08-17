@@ -7,6 +7,12 @@ export class CreateProductUseCase {
     private productsRepository: IProductRepository,
   ) {}
   async execute(data: CreateProductRequestDTO) {
+    const productExists = await this.productsRepository.findBySku(data.sku);
+
+    if (productExists) {
+      throw new Error('Product already exists');
+    }
+
     const product = new Product({
       name: data.name,
       sku: data.sku,

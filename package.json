@@ -4,10 +4,10 @@
   "description": "Criamos esse teste para avaliar seus conhecimentos e habilidades como desenvolvedor backend.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky install",
     "commit": "git-cz",
-    "start:dev": "tsx ./src/server.ts"
+    "start:dev": "tsx ./src/server.ts",
+    "test": "vitest"
   },
   "author": "Vinicius H C Rosa",
   "license": "ISC",
@@ -28,7 +28,8 @@
     "prisma": "^5.1.1",
     "tsup": "^7.2.0",
     "tsx": "^3.12.7",
-    "typescript": "^5.1.6"
+    "typescript": "^5.1.6",
+    "vitest": "^0.34.1"
   },
   "dependencies": {
     "@prisma/client": "^5.1.1",

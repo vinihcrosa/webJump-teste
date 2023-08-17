@@ -6,6 +6,12 @@ export class DeletyeProductUseCase {
   ) {}
 
   async execute(sku: string): Promise<void> {
+    const product = await this.productRepository.findBySku(sku);
+
+    if (!product) {
+      throw new Error('Product not found');
+    }
+
     await this.productRepository.delete(sku);
   }
 }
