@@ -2,9 +2,10 @@ import { beforeEach, describe, expect, it } from 'vitest'
 import { ProductRepositoryInMemory } from '../../../repositories/implementations/InMemory/ProductRepository'
 import { CreateProductUseCase } from './createProduct.useCase.ts'
 import { Product } from '../../../entities/product.entity'
+import { IProductRepository } from '../../../repositories/IProductRepository'
 
 interface LocalTestContext {
-  productRepository: ProductRepositoryInMemory
+  productRepository: IProductRepository
   createProductUseCase: CreateProductUseCase
 }
 
