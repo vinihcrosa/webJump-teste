@@ -1,8 +1,8 @@
 export interface ILogger {
-  fatal(message: string, ...args: any[]): void;
-  error(message: string, ...args: any[]): void;
-  warn(message: string, ...args: any[]): void;
-  info(message: string, ...args: any[]): void;
-  debug(message: string, ...args: any[]): void;
-  trace(message: string, ...args: any[]): void; 
+  fatal(context:string, message: string, data: any, ...args: any[]): void;
+  error(context:string, message: string, data: any, ...args: any[]): void;
+  warn(context:string, message: string, data: any, ...args: any[]): void;
+  info(context:string, message: string, data: any, ...args: any[]): void;
+  debug(context:string, message: string, data: any, ...args: any[]): void;
+  trace(context:string, message: string, data: any, ...args: any[]): void; 
 }

@@ -29,25 +29,55 @@ export default class PinoLogger implements ILogger{
     fileTransport
     );
   }
-  fatal(message: string, ...args: any[]): void {
-    this.logger.fatal(message, ...args);
+  fatal(context:string, message: string, data: any, ...args: any[]): void {
+    this.logger.fatal({
+      context,
+      message,
+      data,
+      args
+    }, message);
   }
-  error(message: string, ...args: any[]): void {
-    this.logger.error(message, ...args);
+  error(context:string, message: string, data: any, ...args: any[]): void {
+    this.logger.error({
+      context,
+      message,
+      data,
+      args
+    }, message);
   }
-  warn(message: string, ...args: any[]): void {
-    this.logger.warn(message, ...args);
+  warn(context:string, message: string, data: any, ...args: any[]): void {
+    this.logger.warn({
+      context,
+      message,
+      data,
+      args
+    }, message);
   }
 
-  info(message: string, ...args: any[]): void {
-    this.logger.info(message, ...args);
+  info(context:string, message: string, data: any, ...args: any[]): void {
+    this.logger.info({
+      context,
+      message,
+      data,
+      args
+    }, message);
   }
 
-  debug(message: string, ...args: any[]): void {
-    this.logger.debug(message, ...args);
+  debug(context:string, message: string, data: any, ...args: any[]): void {
+    this.logger.debug({
+      context,
+      message,
+      data,
+      args
+    }, message);
   }
 
-  trace(message: string, ...args: any[]): void {
-    this.logger.trace(message, ...args);
+  trace(context:string, message: string, data: any, ...args: any[]): void {
+    this.logger.trace({
+      context,
+      message,
+      data,
+      args
+    }, message);
   }
 }
