@@ -4,10 +4,11 @@ import { getAllProductsController } from "./getAllProducts";
 import { updateProductController } from "./updateProduct";
 import { deleteProductController } from "./deleteProduct";
 import { getOneProductController } from "./getOneProduct";
+import { upload } from "../../multerConfig";
 
 const productRouter = Router()
 
-productRouter.post('/', (req: Request, res: Response) => {
+productRouter.post('/', upload.single('image'), (req: Request, res: Response) => {
   createProductController.handle(req, res)
 })
 

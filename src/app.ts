@@ -7,6 +7,8 @@ const app = express();
 app.use(morgan('dev'));
 app.use(express.json());
 
+app.use('/public', express.static('public'))
+
 app.use(router)
 
 export { app }

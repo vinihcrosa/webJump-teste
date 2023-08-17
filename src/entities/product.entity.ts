@@ -5,6 +5,7 @@ export interface IProduct {
   description: string;
   quantity: number;
   category: string[];
+  image?: string
 }
 
 export class Product {
@@ -36,6 +37,10 @@ export class Product {
 
   get category(): string[] {
     return this.props.category;
+  }
+
+  get image(): string | undefined {
+    return this.props.image
   }
 
   public update(props: Partial<IProduct>): void {

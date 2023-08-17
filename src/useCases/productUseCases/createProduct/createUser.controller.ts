@@ -17,9 +17,12 @@ export class CreateProductController {
       'createUserController', 
       `Creating product ${createProductDTO.name}`,
       {
-        createProductDTO
+        createProductDTO,
+        file: request.file
       },
     )
+
+    createProductDTO.image = request.file?.filename
 
     try {
       validate(createProductDTO);
